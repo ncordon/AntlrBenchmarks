@@ -1,4 +1,4 @@
-$defaultGenerator = "antlr-4.8-complete.jar"
+$defaultGenerator = "antlr-4.13.0-complete.jar"
 $dataFileName = "Data.txt"
 
 $runtimes = @{
@@ -170,7 +170,7 @@ function Generate($runtime, [string] $grammar, [string] $resultDir)
         {
             $groupId = "org.antlr"
             $artifactId = "antlr4-runtime"
-            $version = "4.8-1"
+            $version = "4.13.0"
         }
         else
         {
@@ -259,7 +259,8 @@ function Run($runtime, [string] $grammar)
         }
         elseif ($runtimeName -eq "JavaScriptStandard")
         {
-            npm install antlr4@4.8
+            echo '{"type": "module"}' > package.json
+            npm install antlr4@4.13
             node $scriptOrExePath
         }
         elseif ($runtimeName -eq "GoStandard")

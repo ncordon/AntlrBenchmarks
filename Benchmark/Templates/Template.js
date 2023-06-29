@@ -1,8 +1,8 @@
-let fs = require("fs");
-let antlr4 = require('antlr4/index');
-let PredictionMode = require('antlr4/atn/PredictionMode').PredictionMode;
-let __TemplateGrammarName__Lexer = require('./__TemplateGrammarName__Lexer').__TemplateGrammarName__Lexer;
-let __TemplateGrammarName__Parser = require('./__TemplateGrammarName__Parser').__TemplateGrammarName__Parser;
+import fs from 'fs';
+import antlr4 from 'antlr4';
+import PredictionMode from 'antlr4'
+import __TemplateGrammarName__Lexer from './__TemplateGrammarName__Lexer.js'
+import __TemplateGrammarName__Parser from './__TemplateGrammarName__Parser.js'
 
 const warmUpCount = 32;
 const iterationCount = 128;

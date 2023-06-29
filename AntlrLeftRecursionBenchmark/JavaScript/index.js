@@ -1,7 +1,7 @@
-let antlr4 = require('antlr4/index');
-let PredictionMode = require('antlr4/atn/PredictionMode').PredictionMode;
-let LeftRecursionGrammarLexer = require('./LeftRecursionGrammarLexer').LeftRecursionGrammarLexer;
-let LeftRecursionGrammarParser = require('./LeftRecursionGrammarParser').LeftRecursionGrammarParser;
+import antlr4 from 'antlr4';
+import PredictionMode from 'antlr4';
+import * as LeftRecursionGrammarLexer from './LeftRecursionGrammarLexer'
+import * as LeftRecursionGrammarParser from './LeftRecursionGrammarParser'
 
 const termsCount = 128
 const warmUpCount = 4
