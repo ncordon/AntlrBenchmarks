@@ -8,66 +8,18 @@ $runtimes = @{
         Extension=".java";
         ExeExtension = ".jar";
     };
-    JavaOptimized = New-Object PSObject -Property @{
-        Name = "JavaOptimized";
-        Target="Java";
-        Extension=".java";
-        Generator = "antlr-4.7.4-optimized.jar";
-        ExeExtension = ".jar";
-    };
-    CSharpStandard = New-Object PSObject -Property @{
-        Name = "CSharpStandard";
-        Target = "CSharp";
-        Extension = ".cs";
-        ExeExtension = ".dll";
-    };
-    CSharpOptimized = New-Object PSObject -Property @{
-        Name = "CSharpOptimized";
-        Target = "CSharp_v4_5";
-        Extension = ".cs";
-        Generator = "antlr-4.6.6-csharp-optimized.jar";
-        ExeExtension = ".dll";
-    };
-    Python3Standard = New-Object PSObject -Property @{
-        Name = "Python3Standard";
-        Target = "Python3";
-        Extension = ".py";
-    };
     JavaScriptStandard = New-Object PSObject -Property @{
         Name = "JavaScriptStandard";
         Target = "JavaScript";
         Extension = ".js";
     };
-    GoStandard = New-Object PSObject -Property @{
-        Name = "GoStandard";
-        Target = "Go";
-        Extension = ".go";
-        ExeExtension = ".exe";
-    };
-    PhpStandard = New-Object PSObject -Property @{
-        Name = "PhpStandard";
-        Target = "PHP";
-        Extension = ".php";
-    };
 };
 
 $testConfigs = @(
     New-Object PSObject -Property @{ Runtime = "JavaStandard"; Grammar = "NotLeftRecursion" };
-    New-Object PSObject -Property @{ Runtime = "JavaOptimized"; };
-    New-Object PSObject -Property @{ Runtime = "CSharpStandard"; };
-    New-Object PSObject -Property @{ Runtime = "CSharpOptimized"; };
-    New-Object PSObject -Property @{ Runtime = "Python3Standard"; };
-    New-Object PSObject -Property @{ Runtime = "JavaScriptStandard"; };
-    New-Object PSObject -Property @{ Runtime = "GoStandard"; };
-    New-Object PSObject -Property @{ Runtime = "PhpStandard"; };
+    New-Object PSObject -Property @{ Runtime = "JavaScriptStandard"; Grammar = "NotLeftRecursion" };
     New-Object PSObject -Property @{ Runtime = "JavaStandard"; Grammar = "LeftRecursion" };
-    New-Object PSObject -Property @{ Runtime = "JavaOptimized"; };
-    New-Object PSObject -Property @{ Runtime = "CSharpStandard"; };
-    New-Object PSObject -Property @{ Runtime = "CSharpOptimized"; };
-    New-Object PSObject -Property @{ Runtime = "Python3Standard"; };
-    New-Object PSObject -Property @{ Runtime = "JavaScriptStandard"; };
-    New-Object PSObject -Property @{ Runtime = "GoStandard"; };
-    New-Object PSObject -Property @{ Runtime = "PhpStandard"; };
+    New-Object PSObject -Property @{ Runtime = "JavaScriptStandard"; Grammar = "LeftRecursion" };
 )
 
 function ProcessAll()
@@ -307,6 +259,7 @@ function Run($runtime, [string] $grammar)
         }
         elseif ($runtimeName -eq "JavaScriptStandard")
         {
+            npm install antlr4@4.8
             node $scriptOrExePath
         }
         elseif ($runtimeName -eq "GoStandard")

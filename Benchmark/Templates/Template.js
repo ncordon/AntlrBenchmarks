@@ -31,7 +31,7 @@ __TemplateGrammarName_____RuntimeName__();
 Benchmark(true, warmUpCount);
 let time = Benchmark(false, iterationCount);
 
-fs.writeFileSync("__TemplateGrammarName_____RuntimeName__.benchmark", time);
+fs.writeFileSync("__TemplateGrammarName_____RuntimeName__.benchmark", time.toString());
 
 function Benchmark(warmUp, iterationCount) {
     console.log(warmUp ? "warming up..." : "benchmarking...");
